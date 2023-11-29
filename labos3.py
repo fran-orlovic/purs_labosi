@@ -7,28 +7,30 @@ app.secret_key = '_5#y2L"F4Q8z-n-xec]/'
 # Zadatak 1
 @app.get('/')
 def index():
-    return render_template('index.html'), 200
+    return render_template('index4.html'), 200
 
 @app.get('/login')
 def login():
-    return render_template('login.html'), 200
+    return render_template('login4.html'), 200
 
 # Zadatak 2-4
 @app.before_request
 def before_request_func():
+    if request.path.startswith('/static'):
+         return
     if request.path == '/login':
-            return
+        return
     if session.get('username') is None:
-            return redirect(url_for('login_page'))
+        return redirect(url_for('login_page'))
 
 @app.get('/')
 def home_page():
-    response = render_template('index.html')
+    response = render_template('index4.html')
     return response
 
 @app.get('/login')
 def login_page():
-    response = render_template('login.html')
+    response = render_template('login4.html')
     return response
 
 @app.get('/logout')

@@ -1,0 +1,42 @@
+body {
+    background-image: url(../static/background.png);
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.login_window {
+    display: flex;
+    background-color: #ADADAD;
+    flex-direction: column;
+    padding: 40px;
+    max-width: 400px;
+    border-top-color: #64485c;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+form input[type="submit"] {
+    background-color: #3a454d;
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ADADAD;
+}
