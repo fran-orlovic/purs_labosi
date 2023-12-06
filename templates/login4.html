@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stranica za prijavu</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="../static/styles4_index.css">
 </head>
 <body>
@@ -12,6 +12,9 @@
             <input type="text" id="username" name="username" placeholder="Username">
             <input type="password" id="password" name="password" placeholder="Password">
             <input type="submit">
+            {% if poruka %}
+            <p>{{poruka}}</p>
+            {% endif %}
         </form>
     </div>
 </body>

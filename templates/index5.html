@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='styles.css') }}"
+    />
+</head>
+<body>
+    <header>
+        <div class="user_data">
+            <p>
+                {{username|capitalize}}
+            </p>
+            <img src="{{ url_for('static', filename='user-icon.png') }}" alt="User icon" width="50px">
+        </div>
+        <img src="{{ url_for('static', filename='icon.png') }}" alt="Kucica" width="50px">
+    </header>
+    <nav>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <a href="/?id=1">Temperatura</a>
+        <a href="/?id=2">Vlaga</a>
+    </nav>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Vrijeme</th>
+                    <th>Temperatura</th>
+                    <th>Brisanje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for temp in temperature %}
+                <tr>
+                    <td>{{temp.datum}}</td>
+                    <td>{{temp.vrijednost}}</td>
+                    <td><button>Obriši</button></td><br>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
