@@ -29,17 +29,23 @@
             <thead>
                 <tr>
                     <th>Vrijeme</th>
-                    <th>Temperatura</th>
+                    <th>{{tip}}</th>
                     <th>Brisanje</th>
                 </tr>
             </thead>
             <tbody>
-                {% for temp in temperature %}
+                {% for podatak in podatci %}
+                {% if podatak[0] %}
                 <tr>
-                    <td>{{temp.datum}}</td>
-                    <td>{{temp.vrijednost}}</td>
-                    <td><button>Obriši</button></td><br>
+                    <td>{{podatak[1]}}</td>
+                    <td>{{podatak[2]}}</td>
+                    <td>
+                        <form action="{{ url_for('delete', id_stupca=podatak[0], id_podatka=tip_podatka[0]) }}" method="POST" >
+                            <input type="submit" value="Obriši">
+                        </form>
+                    </td>
                 </tr>
+                {% endif %}
                 {% endfor %}
             </tbody>
         </table>
